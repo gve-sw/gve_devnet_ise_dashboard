@@ -1,0 +1,73 @@
+<!-- Template page: This settings page offers various input field to gather settings information -->
+
+    {% extends "masterPage.html" %}
+
+    {% block content %}
+    <div class="row">
+            <!-- Left Rail -->
+            <div class="col-xl-3 col-md-3">
+            </div>
+    
+            <!-- Middle Rail -->
+            <div class="col-9 col-xl-7 col-md-6">
+                <div class="section" >
+                    <div class="panel panel--loose panel--raised base-margin-bottom">
+                        <h2 class="subtitle">Register Endpoint</h2>
+                        <hr>
+                          <form method="POST">
+                            <div class="section"> 
+                                                                                                 
+                                <!--CUSTOMIZE: Text field section: Add or remove elements as needed.-->
+                                                               
+                                    <!--Value1 Field-->
+                                        <div class="form-group base-margin-bottom">
+                                            <div class="form-group__text">
+                                                <input id="mac-addr" type="text" required="" onfocus="showOriginalText('Start Demo')" name="mac-addr">
+                                                <label for="mac-addr">MAC Address</label>
+                                            </div>
+                                            <br>
+                                            <div class="form-group__text">
+                                                <input id="name" type="text" required="" onfocus="showOriginalText('Start Demo')" name="name">
+                                                <label for="name">Device Name</label>
+                                            </div>
+                                            <br>
+                                            <div class="form-group__text">
+                                                <input id="description" type="text" required="" onfocus="showOriginalText('Start Demo')" name="description">
+                                                <label for="description">Description</label>
+                                            </div>
+                                            <br>
+                                            <div class="form-group dropdown">
+                                              <div class="form-group__text select">
+                                                <input id="category" name="category" value="Select an Option">
+                                                <label for="select-type-styled">Category</label>
+                                              </div>
+                                              <div class="dropdown__menu">
+                                                <a>Dorm Devices</a>
+                                                <a>HVAC Controls</a>
+                                                <a>Phones</a>
+                                              </div>
+                                            </div>
+                                        </div>
+
+                                <!--CUSTOMIZE END-->
+                            
+                                <!-- Button area-->
+                                <input id="settings-submit" onclick="showLoadingText()" onload="showOriginalText('Save')" class="btn btn-primary" type="submit" value="Register Endpoint">
+
+                            </div> 
+
+                        </form>
+                        
+                        <!--Alert for error message-->
+                            <!--PASS INFO: Pass the following information to the template: error=True/False ; errormessage="xxx" ; errorcode=xxx-->
+                            {% include "alert.html" %}
+    
+                    </div>
+                </div>
+            </div>
+    
+        <!-- Right Rail -->
+        <div class="col-0 col-xl-3 col-md-3">
+        </div>
+    </div>
+    {%  endblock %}

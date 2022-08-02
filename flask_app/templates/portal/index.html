@@ -1,0 +1,59 @@
+
+{% extends "masterPage.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-9 col-xl-10 col-md-9">
+    <div class="section">
+        <div class="flex-center-vertical">
+            <h1>Registered Endpoints</h1>
+        </div>
+    </div>
+    <div class="section">
+      <form method="post">
+        <div class="responsive-table">
+            <table class="table table--lined table--selectable table">
+                <thead>
+                    <tr>
+                        <th>
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span class="checkbox__input"></span>
+                            </label>
+                        </th>
+                        <th class="sortable">Device <span class="sort-indicator icon-dropdown"></span></th>
+                        <th class="text-center">MAC Address</th>
+                        <th class="date-registered">Date Registered</th>
+                        <th class="category">Category</th>
+                        <th class="text-center">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for endpoint in endpoints %}
+                    <tr>
+                        <td>
+                            <label class="checkbox">
+                                <input type="checkbox" id="{{ endpoint.id }}" name="endpoint" value="{{ endpoint.id }}">
+                                <span class="checkbox__input"></span>
+                            </label>
+                        </td>
+                        <td>
+                          <span>{{ endpoint.name }}</span>
+                        </td>
+                        <td class="text-center">{{ endpoint.mac }}</td>
+                        <td class="text-center">{{ endpoint.register_date }}</td>
+                        <td class="text-center">{{ endpoint.category }}</td>
+                        <td class="text-center">{{ endpoint.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="col-1">
+              <input class="btn btn--secondary btn--justified" type="submit" value="Delete Endpoints" style=style="background-color:#00BCEB;">
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+{%  endblock %}

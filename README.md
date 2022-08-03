@@ -51,26 +51,30 @@ return headers
 ## Installation/Configuration
 1. Clone this repository with `git clone https://github.com/gve-sw/gve_devnet_ise_dashboard` and open the directory of the root repository.
 2. Set up a Python virtual environment. Make sure Python 3 is installed in your environment, and if not, you may download Python [here](https://www.python.org/downloads/). Once Python 3 is installed in your environment, you can activate the virtual environment with the instructions found [here](https://docs.python.org/3/tutorial/venv.html).
-3. Add ISE IP address, username, and password where the API was enabled in the Prerequisites section to the environmental variables in the .env file. 
+3. Install the required Python libraries with the command:
+```
+$ pip3 install -r requirements.txt
+```
+4. Add ISE IP address, username, and password where the API was enabled in the Prerequisites section to the environmental variables in the .env file. 
 ```python
 ISE_IP='ip goes here'
 ISE_USER='username goes here'
 ISE_PASSWORD='password goes here'
 ```
-4. The flask app is contained in the flask_app directory, so we should let the program know where to check for the app. Set the flask environmental settings with the following commands:
+5. The flask app is contained in the flask_app directory, so we should let the program know where to check for the app. Set the flask environmental settings with the following commands:
 ```
 $ export FLASK_APP=flask_app
 $ export FLASK_ENV=development
 ```
-5. To initialize the database (this is only needed on the first use), use the command:
+6. To initialize the database (this is only needed on the first use), use the command:
 ```
 $ flask init-db
 ```
-6. To populate the database with the endpoints currently registered with your ISE environment, use the command:
+7. To populate the database with the endpoints currently registered with your ISE environment, use the command:
 ```
 $ flask init-data
 ```
-7. Finally, to start the Flask app, use the command:
+8. Finally, to start the Flask app, use the command:
 ```
 $ flask run
 ```
